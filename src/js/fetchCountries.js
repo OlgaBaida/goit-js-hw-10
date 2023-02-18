@@ -1,9 +1,11 @@
-const BASE_URL = `https://restcountries.com/v3.1/name/{name}?fullText=true`
-const fields = `https://restcountries.com/v2/all?fields=name,capital,capital,population,flags,languages`
+const BASE_URL = `https://restcountries.com/v3.1`
 
 export async function fetchCountries(name) {
   try {
-        const response = await fetch(`${BASE_URL}${name}?${fields}`)
+        
+        const url = `${BASE_URL}/name/${name}?fields=name,capital,capital,population,flags,languages`;
+        const response = await fetch(url);
+        
         return await response.json()
     } catch (error) {
         return console.log(error)
